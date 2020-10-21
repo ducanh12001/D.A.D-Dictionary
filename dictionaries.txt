@@ -1,0 +1,14 @@
+bone	xuong
+can	co the
+cat	meo
+dog	cho
+eat	an
+fix	sua
+jump	nhay
+lake	ao, ho
+low	thap
+red	mau do
+setting	cai dat
+sing	hat
+sit	ngoi
+we	chúng ta, chúng tôi
