@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.application.Platform;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -13,7 +14,10 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+
+import java.awt.*;
 import java.io.IOException;
 import java.io.*;
 import java.net.URL;
@@ -33,9 +37,11 @@ public class Controller implements Initializable {
     private ListView<String> listView;
     @FXML
     private Button heart;
+    private Button[] x = new Button[100];
     @FXML
     private MenuButton favList;
 
+    static Map<String, String> dictionary = new HashMap<String, String>();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -54,7 +60,6 @@ public class Controller implements Initializable {
     }
 
     //Doc file
-    static Map<String, String> dictionary = new HashMap<String, String>();
     public void initializeWordList() throws IOException {
         sortFile();
         try {
@@ -102,20 +107,13 @@ public class Controller implements Initializable {
             textArea.setText("Please don't include numbers!");
         } else if(searchedWord.contains(" ")) {
             textArea.setText("Please don't include spaces while searching!");
-        } else if (searchedWord != null && searchedWord.equals("") == false) {
+        } else if (dictionary.containsKey(searchedWord.trim())) {
             System.out.println("Searched World: " + searchedWord);
             String wordMeaning = dictionary.get(searchedWord);
             textArea.setText(wordMeaning);
+        } else {
+            textArea.setText("Our dictionary doesn't have this word!");
         }
-    }
-
-    //nut xoa tu
-    @FXML
-    public void delete(ActionEvent event) throws IOException {
-        String chosenWord = listView.getSelectionModel().getSelectedItem();
-        dictionary.remove(chosenWord.trim());
-        writeChanges();
-        System.out.println(chosenWord + " has been deleted from the dictionary");
     }
 
     public static String fileWriteContent(){
@@ -141,6 +139,14 @@ public class Controller implements Initializable {
             System.out.println("exception occoured" + e);
         }
     }
+    //nut xoa tu
+    @FXML
+    public void delete(ActionEvent event) throws IOException {
+        String chosenWord = listView.getSelectionModel().getSelectedItem();
+        dictionary.remove(chosenWord.trim());
+        writeChanges();
+        System.out.println(chosenWord + " has been deleted from the dictionary");
+    }
 
     //nut them tu
     @FXML
@@ -152,7 +158,6 @@ public class Controller implements Initializable {
         Scene scene = new Scene(parent);
         stage.setScene(scene);
     }
-
 
     //nut sua tu
     @FXML
@@ -168,33 +173,39 @@ public class Controller implements Initializable {
 
     //but Heart
     @FXML
-    public void heartClick(ActionEvent event) {
-        listView.getSelectionModel().getSelectedItem();
+    public void heartClick(ActionEvent event) throws IOException {
+        String favW = listView.getSelectionModel().getSelectedItem();
         heart.setStyle("-fx-shape:  \"M 400 150 A 50 50 0 1 1 500 200 Q 450 250 400 300 L 300 200 A 50 50 0 1 1 400 150 \"; -fx-background-color: pink");
-
     }
 
-    //menuList
-    @FXML
-    public void menuClick(ActionEvent event) {
-
-    }
     @FXML
     public void doQuit(ActionEvent event) {
         Platform.exit();
         System.exit(0);
     }
 
-    @FXML
-    public void openList(ActionEvent event) {
-
-    }
-
+    private Desktop desktop = Desktop.getDesktop();
     @FXML void showGuide(ActionEvent event) {
-
+        File file = new File("Guide.txt");
+        try {
+            desktop.open(file);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
-    @FXML void showInfor(ActionEvent event) {
+    @FXML
+    public void showInfor(ActionEvent event) {
+        File file = new File("Information.txt");
+        try {
+            desktop.open(file);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void upWords(KeyEvent keyEvent) {
 
     }
 }
