@@ -6,13 +6,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.awt.*;
+
 public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("D.A.D Dictionary");
-        primaryStage.setScene(new Scene(root, 795, 489  ));
+        primaryStage.setScene(new Scene(root, 900, 590  ));
         primaryStage.show();
     }
 

@@ -175,7 +175,7 @@ public class Controller implements Initializable {
     @FXML
     public void heartClick(ActionEvent event) throws IOException {
         String favW = listView.getSelectionModel().getSelectedItem();
-        heart.setStyle("-fx-shape:  \"M 400 150 A 50 50 0 1 1 500 200 Q 450 250 400 300 L 300 200 A 50 50 0 1 1 400 150 \"; -fx-background-color: pink");
+        heart.setStyle("-fx-shape:  \"M 400 150 A 50 50 0 1 1 500 200 Q 450 250 400 300 L 300 200 A 50 50 0 1 1 400 150 \"; -fx-background-color: red");
     }
 
     @FXML
