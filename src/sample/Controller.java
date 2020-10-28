@@ -1,7 +1,11 @@
 package sample;
 
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -14,12 +18,16 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.awt.*;
 import java.io.IOException;
 import java.io.*;
+import java.net.InetSocketAddress;
+import java.net.Socket;
 import java.net.URL;
 import java.text.Collator;
 import java.util.*;
@@ -28,7 +36,6 @@ import java.util.ResourceBundle;
 
 
 public class Controller implements Initializable {
-
     @FXML
     private TextField textField;
     @FXML
@@ -37,21 +44,26 @@ public class Controller implements Initializable {
     private ListView<String> listView;
     @FXML
     private Button heart;
-    private Button[] x = new Button[100];
     @FXML
-    private MenuButton favList;
+    private Button speakBut;
 
+    private final ObservableList observableList = FXCollections.observableArrayList();
+    private List<String> listKey = new ArrayList<String>();
     static Map<String, String> dictionary = new HashMap<String, String>();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        Image image = new Image(getClass().getResourceAsStream("/sample/sound.png"));
+        speakBut.setGraphic(new ImageView(image));
+
         try {
             this.initializeWordList();
             listView.setOnMouseClicked(event -> {
                 String searchedWord = listView.getSelectionModel().getSelectedItem();
                 if (searchedWord != null && searchedWord.equals("") == false) {
-                    System.out.println("Searched World: " + searchedWord);
                     String wordMeaning = dictionary.get(searchedWord);
                     textArea.setText(wordMeaning);
+                    textField.setText(searchedWord);
                 }
             });
         } catch (IOException e) {
@@ -62,22 +74,20 @@ public class Controller implements Initializable {
     //Doc file
     public void initializeWordList() throws IOException {
         sortFile();
-        try {
-            File file = new File("dictionaries.txt");
-            FileReader fr = new FileReader(file);
-            BufferedReader br = new BufferedReader(fr);
-            String line;
-            while ((line = br.readLine()) != null) {
-                dictionary.put(line.substring(0, line.indexOf("\t")), line.substring(line.indexOf("\t") + 1));
-            }
+        File file = new File("dictionaries.txt");
+        FileReader fr = new FileReader(file);
+        BufferedReader br = new BufferedReader(fr);
+        String line;
+        while ((line = br.readLine()) != null) {
+            dictionary.put(line.substring(0, line.indexOf("\t")), line.substring(line.indexOf("\t") + 1));
+            listKey.add(line.substring(0, line.indexOf("\t")));
         }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        listView.getItems().addAll(dictionary.keySet());
+        observableList.addAll(dictionary.keySet());
+        SortedList<String> sortedList = new SortedList(observableList);
+        listView.setItems(sortedList.sorted());
     }
 
-    //sap xep
+    //sap xep file
     public static void sortFile() throws IOException {
         FileReader fileReader = new FileReader("dictionaries.txt");
         BufferedReader bufferedReader = new BufferedReader(fileReader);
@@ -87,7 +97,6 @@ public class Controller implements Initializable {
             lines.add(line);
         }
         bufferedReader.close();
-
         Collections.sort(lines, Collator.getInstance());
 
         FileWriter writer = new FileWriter("dictionaries.txt");
@@ -108,7 +117,6 @@ public class Controller implements Initializable {
         } else if(searchedWord.contains(" ")) {
             textArea.setText("Please don't include spaces while searching!");
         } else if (dictionary.containsKey(searchedWord.trim())) {
-            System.out.println("Searched World: " + searchedWord);
             String wordMeaning = dictionary.get(searchedWord);
             textArea.setText(wordMeaning);
         } else {
@@ -116,6 +124,19 @@ public class Controller implements Initializable {
         }
     }
 
+    @FXML
+    public void upWords(KeyEvent keyEvent) {
+        String text = textField.getText();
+        observableList.clear();
+        for (int i = 0; i < listKey.size(); i++) {
+            if (listKey.get(i).startsWith(text)) {
+                observableList.add(listKey.get(i));
+            }
+        }
+        SortedList<String> sortedList1 = new SortedList(observableList);
+        listView.setItems(sortedList1.sorted());
+    }
+    
     public static String fileWriteContent(){
         String sentence = "";
         Iterator hmIterator = dictionary.entrySet().iterator();
@@ -129,26 +150,30 @@ public class Controller implements Initializable {
     }
 
     public static void writeChanges() throws IOException {
-        try {
-            FileWriter out = new FileWriter("dictionaries.txt");
-            String sentence =  fileWriteContent();
-            out.write(sentence);
-            out.close();
-        }
-        catch (IOException e) {
-            System.out.println("exception occoured" + e);
-        }
+        FileWriter out = new FileWriter("dictionaries.txt");
+        String sentence =  fileWriteContent();
+        out.write(sentence);
+        out.close();
     }
+
     //nut xoa tu
     @FXML
     public void delete(ActionEvent event) throws IOException {
         String chosenWord = listView.getSelectionModel().getSelectedItem();
-        dictionary.remove(chosenWord.trim());
-        writeChanges();
-        System.out.println(chosenWord + " has been deleted from the dictionary");
+        if (dictionary.containsKey(chosenWord)) {
+            dictionary.remove(chosenWord.trim());
+            observableList.remove(chosenWord);
+            listKey.remove(chosenWord);
+            writeChanges();
+            textField.setText("");
+            textArea.setText("");
+            System.out.println(chosenWord + " has been deleted from the dictionary");
+        } else {
+            textArea.setText("Please choose a word to delete!");
+        }
     }
 
-    //nut them tu
+    //nut Add Word
     @FXML
     public void addScene(ActionEvent event) throws IOException {
         Stage stage = (Stage)((Node) event.getSource()).getScene().getWindow();
@@ -159,23 +184,22 @@ public class Controller implements Initializable {
         stage.setScene(scene);
     }
 
-    //nut sua tu
+    //nut Fix Word
     @FXML
     public void fixScene(ActionEvent event) throws IOException {
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("fixWord.fxml"));
-            Parent parent = loader.load();
-            Scene scene = new Scene(parent);
-            String wordFix = listView.getSelectionModel().getSelectedItem();
-            stage.setScene(scene);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("fixWord.fxml"));
+        Parent parent = loader.load();
+        Scene scene = new Scene(parent);
+        stage.setScene(scene);
     }
 
-    //but Heart
+    //nut Heart
     @FXML
     public void heartClick(ActionEvent event) throws IOException {
         String favW = listView.getSelectionModel().getSelectedItem();
-        heart.setStyle("-fx-shape:  \"M 400 150 A 50 50 0 1 1 500 200 Q 450 250 400 300 L 300 200 A 50 50 0 1 1 400 150 \"; -fx-background-color: red");
+        heart.setStyle("-fx-shape:  \"M 400 150 A 50 50 0 1 1 500 200 Q 450 250 400 300 L 300 200 A 50 50 0 1 1 400 150 \"; -fx-background-color: #ea1515");
     }
 
     @FXML
@@ -189,8 +213,8 @@ public class Controller implements Initializable {
         File file = new File("Guide.txt");
         try {
             desktop.open(file);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -199,13 +223,45 @@ public class Controller implements Initializable {
         File file = new File("Information.txt");
         try {
             desktop.open(file);
-        } catch (IOException ex) {
-            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
+    //nut Speak
+    private static final String voice_name = "kevin16";
     @FXML
-    public void upWords(KeyEvent keyEvent) {
+    public void soundOn(ActionEvent event) {
+        String word = textField.getText();
+        Voice voice;
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
+        VoiceManager voiceManager = VoiceManager.getInstance();
+        voice = voiceManager.getVoice(voice_name);
+        voice.allocate();
+        if(dictionary.containsKey(word)) {
+            voice.speak(word);
+        }
+    }
 
+    //nut API
+    @FXML
+    public void apiScene(ActionEvent event) throws IOException {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Warning!");
+        alert.setHeaderText("Please check your internet connection!");
+
+        Socket socket = new Socket();
+        InetSocketAddress address = new InetSocketAddress("www.google.com", 80);
+        try {
+            socket.connect(address, 3000);
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("APIScene.fxml"));
+            Parent parent = loader.load();
+            Scene scene = new Scene(parent);
+            stage.setScene(scene);
+        } catch (Exception e) {
+            alert.showAndWait();
+        }
     }
 }

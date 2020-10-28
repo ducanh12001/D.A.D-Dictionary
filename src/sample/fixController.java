@@ -7,6 +7,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -29,18 +31,22 @@ public class fixController implements Initializable {
     public void fixbackBut(ActionEvent event) throws IOException {
         String fixw = tfFixWord.getText();
         String fixm = tfFixMean.getText();
+
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Notification");
+        alert.setHeaderText(fixw + " is successfully fixed!");
+
+        Alert alert1 = new Alert(AlertType.CONFIRMATION);
+        alert1.setTitle("Warning");
+        alert1.setHeaderText("Please write the correct dictionary word to fixed.");
+
         if (Controller.dictionary.containsKey(fixw)) {
             Controller.dictionary.replace(fixw.trim(), fixm);
             Controller.writeChanges();
-            System.out.println("fixed.");
-            goBack(event);
-        } else if(Controller.dictionary.containsKey(fixm)) {
-            Controller.dictionary.replace(fixw.trim(), fixm);
-            Controller.writeChanges();
-            System.out.println("fixed.");
+            alert.showAndWait();
             goBack(event);
         } else {
-                goBack(event);
+            alert1.showAndWait();
         }
     }
 

@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
@@ -33,6 +35,19 @@ public class addController implements Initializable {
     public void addbackBut(ActionEvent event) throws IOException {
         String nw = tfWord.getText();
         String nm = tfMean.getText();
+
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Warning");
+        alert.setHeaderText("This word is already had.");
+
+        Alert alert1 = new Alert(AlertType.CONFIRMATION);
+        alert1.setTitle("Warning");
+        alert1.setHeaderText("Please add word with mean!");
+
+        Alert alert2 = new Alert(AlertType.CONFIRMATION);
+        alert2.setTitle("Notification");
+        alert2.setHeaderText(nw + " is successfully added to the dictionary!");
+
         if(nw != null  && !nw.equals("") && nm != null && !nm.equals("") && !Controller.dictionary.containsKey(nw)) {
             Controller.dictionary.put(nw, nm);
             String sentence = nw + "\t" + nm + "\n";
@@ -40,13 +55,16 @@ public class addController implements Initializable {
                 BufferedWriter out = new BufferedWriter(new FileWriter("dictionaries.txt", true));
                 out.write(sentence);
                 out.close();
-                System.out.println(nw + " successfully added to the dictionary");
             }
             catch (IOException e) {
                 System.out.println(e);
             }
-            Controller.sortFile();
+            alert2.showAndWait();
             goBack(event);
+        } else if(nw.equals("") || nm.equals("")){
+            alert1.showAndWait();
+        } else if(Controller.dictionary.containsKey(nw)) {
+            alert.showAndWait();
         } else {
             goBack(event);
         }

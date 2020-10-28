@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="250.0" prefWidth="758.0" style="-fx-background-color: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.apiController">
+   <children>
+      <TextArea fx:id="apiText" layoutX="29.0" layoutY="24.0" prefHeight="197.0" prefWidth="266.0" promptText="Your text" AnchorPane.leftAnchor="29.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextArea>
+      <TextArea fx:id="apiMean" editable="false" layoutX="455.0" layoutY="25.0" prefHeight="197.0" prefWidth="266.0" AnchorPane.rightAnchor="29.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </TextArea>
+      <Button layoutX="341.0" layoutY="108.0" mnemonicParsing="false" onAction="#apiTrans" text="Translate">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <Button layoutX="355.0" layoutY="183.0" mnemonicParsing="false" onAction="#goBack" text="Back">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Button>
+      <MenuButton layoutX="333.0" layoutY="25.0" mnemonicParsing="false" text="Language">
+        <items>
+            <RadioMenuItem fx:id="ev" mnemonicParsing="false" selected="true" text="English - VietNam">
+               <toggleGroup>
+                  <ToggleGroup fx:id="Lang" />
+               </toggleGroup>
+            </RadioMenuItem>
+            <RadioMenuItem mnemonicParsing="false" text="VietNam - English" toggleGroup="$Lang" />
+        </items>
+         <font>
+            <Font size="13.0" />
+         </font>
+      </MenuButton>
+   </children>
+</AnchorPane>
