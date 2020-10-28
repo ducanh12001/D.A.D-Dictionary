@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f9cf143-32fd-49c9-b518-4825f5d8d2a3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/DicTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DicTest.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Guide.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Guide.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Information.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Information.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/addController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/addController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/addWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/addWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/fixController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/fixController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/fixWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/fixWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/myCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/myCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/sample.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/addController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/addController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/addWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/addWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/fixController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/fixController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/fixWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/fixWord.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/myCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/myCss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="9f9cf143-32fd-49c9-b518-4825f5d8d2a3" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="BRANCH" value="duy_bo" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -54,6 +54,17 @@
       <updated>1603894429073</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
     <state x="501" y="154" key="FileChooserDialogImpl" timestamp="1603894544375">
