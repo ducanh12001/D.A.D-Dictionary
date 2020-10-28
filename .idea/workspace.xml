@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="9f9cf143-32fd-49c9-b518-4825f5d8d2a3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/DicTest.iml" beforeDir="false" afterPath="$PROJECT_DIR$/DicTest.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Guide.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Guide.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Information.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Information.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/addController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/addController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/addWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/addWord.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/fixController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/fixController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/fixWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/fixWord.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/myCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/myCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/DicTest/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/DicTest/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/addController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/addController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/addWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/addWord.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/fixController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/fixController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/fixWord.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/fixWord.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/myCss.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/myCss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/sample.fxml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1jVfxrZUN1m89ZniAxpjOAURaA7" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/jar" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="9f9cf143-32fd-49c9-b518-4825f5d8d2a3" name="Default Changelist" comment="" />
+      <created>1603894429073</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1603894429073</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="501" y="154" key="FileChooserDialogImpl" timestamp="1603894544375">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="501" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603894544375" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1603894554185">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1603894554185" />
+  </component>
+</project>

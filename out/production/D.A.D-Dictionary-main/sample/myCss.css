@@ -1,0 +1,19 @@
+.search:pressed{
+    -fx-background-color:#3b17cc;
+    -fx-border-width:2px;
+    -fx-border-color:#2f438a;
+}
+
+.add:pressed{
+    -fx-background-color: #3f8dd0;
+    -fx-border-width: 1.5px;
+    -fx-border-color: #2c93ab;
+}
+
+.heart:pressed {
+    -fx-background-color: #3f8dd0;
+    -fx-border-width: 1.5px;
+    -fx-border-color: #2c93ab;
+}
+
+

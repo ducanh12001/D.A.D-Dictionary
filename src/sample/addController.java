@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextField;
 
 import javafx.event.ActionEvent;
@@ -31,6 +33,14 @@ public class addController implements Initializable {
 
     @FXML
     public void addbackBut(ActionEvent event) throws IOException {
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Warning");
+        alert.setHeaderText("This word is already had.");
+
+        Alert alert1 = new Alert(AlertType.CONFIRMATION);
+        alert1.setTitle("Warning");
+        alert1.setHeaderText("Please add word with mean!");
+
         String nw = tfWord.getText();
         String nm = tfMean.getText();
         if(nw != null  && !nw.equals("") && nm != null && !nm.equals("") && !Controller.dictionary.containsKey(nw)) {
@@ -47,6 +57,10 @@ public class addController implements Initializable {
             }
             Controller.sortFile();
             goBack(event);
+        } else if(nw.equals("") || nm.equals("")){
+            alert1.showAndWait();
+        } else if(Controller.dictionary.containsKey(nw)) {
+            alert.showAndWait();
         } else {
             goBack(event);
         }

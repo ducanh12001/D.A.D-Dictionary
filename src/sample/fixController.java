@@ -32,12 +32,7 @@ public class fixController implements Initializable {
         if (Controller.dictionary.containsKey(fixw)) {
             Controller.dictionary.replace(fixw.trim(), fixm);
             Controller.writeChanges();
-            System.out.println("fixed.");
-            goBack(event);
-        } else if(Controller.dictionary.containsKey(fixm)) {
-            Controller.dictionary.replace(fixw.trim(), fixm);
-            Controller.writeChanges();
-            System.out.println("fixed.");
+            System.out.println("fixed");
             goBack(event);
         } else {
                 goBack(event);

@@ -1,12 +1,9 @@
 - Nút Search: để tra nghĩa của từ bạn gõ (hoặc sau khi gõ có thê nhấn Enter)
-- Dấu cộng: để thêm từ vào từ điển.
+- Nút Add word: để thêm từ vào từ điển.
 - Nút Delete:
 	+ Click chuột vào từ bạn cần xóa ở danh sách(ListView)
 	+ Bấm nút Delete
-- Hình tua vít: 
+- Nút Fix word: 
 	+ Hiện giao diện để bạn gõ từ muốn sửa và nghĩa mới của nó
-	(chỉ sửa được nghĩa của từ có sẵn)
-- Nút trái tim: 
-	+ Click chuột vào từ bạn muốn thêm vào danh sách yêu thích
-	+ Ấn nút trái tim
-- Để vào danh sách từ yêu thích: File -> Favourite Words
+	(chỉ sửa được nghĩa của từ có sẵn) 
+- Nút phát âm: phát âm từ tiếng anh
